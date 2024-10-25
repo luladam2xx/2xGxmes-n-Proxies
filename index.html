@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2xGxmes</title>
+    <style>
+        body {
+            background-color: #3f0071; /* Dark purple color */
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+
+        h1 {
+            font-size: 48px; /* Header text size */
+            color: black; /* Changed header text color to black */
+            border-bottom: 3px solid black; /* Thicker black border */
+            padding-bottom: 10px;
+        }
+
+
+        h2, h3 {
+            font-size: 24px; /* Subheader text size */
+            color: black; /* Changed header text color to black */
+            border-bottom: 3px solid black; /* Thicker black border */
+            padding-bottom: 10px;
+        }
+
+
+        p {
+            font-size: 16px; /* Paragraph text size */
+            color: #e0e0e0;
+        }
+
+
+        a {
+            font-size: 16px; /* Link text size */
+            color: white;
+            text-decoration: none;
+        }
+
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        header {
+            background-color: transparent; /* Transparent header background */
+            padding: 10px;
+            text-align: center;
+            border-bottom: 3px solid black; /* Thicker black border */
+        }
+
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+
+        nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            overflow: auto;
+            height: calc(100vh - 100px);
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+
+        footer {
+            background-color: #3d3d3d;
+            padding: 10px;
+            text-align: center;
+            border-top: 3px solid black; /* Thicker black border */
+        }
+
+
+        .container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px solid black; /* Thicker black border */
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+        button {
+            background-color: #ff3d00;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px; /* Button text size */
+            margin-top: 10px;
+        }
+
+
+        .fullscreen-button {
+            background-color: #6a0dad;
+            color: white;
+        }
+
+
+        .fullscreen-button:hover {
+            background-color: #5a0c94;
+        }
+
+
+        button:hover {
+            background-color: #e63900;
+        }
+
+
+        .game-container, .proxy-container {
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+        #gameIframe, #proxyIframe {
+            width: 800px;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            margin: auto;
+            display: block;
+        }
+
+
+        #minecraftIframe, #robloxButton {
+            width: 480px;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+            margin: auto;
+            display: block;
+        }
+
+
+        #minecraftButton {
+            width: 480px;
+        }
+
+
+        #playButton {
+            width: 480px;
+        }
+
+
+        .spacer {
+            height: 50px; /* Spacer section height */
+        }
+
+
+        .final-section {
+            font-size: 48px; /* Same size as header */
+            text-align: center;
+            margin: 50px 0; /* Added space below */
+            color: black; /* Text color */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2xGxmes</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#proxy">Proxy</a></li>
+            <li><a href="#chatgpt">ChatGPT</a></li>
+            <li><a href="#youtube-unblocked">YouTube Unblocked</a></li> <!-- Added link to the new section -->
+        </ul>
+    </nav>
+    <main>
+        <section id="games" class="container">
+            <h2>Games</h2>
+            <div class="game-container">
+                <iframe src="https://zeelix.web.app/gxmes.html" id="gameIframe"></iframe>
+            </div>
+            <button class="fullscreen-button" onclick="openFallbackGame()">FULLSCREEN</button>
+        </section>
+
+
+        <section id="minecraft" class="container">
+            <h2>Minecraft</h2>
+            <div class="minecraft-container">
+                <iframe src="https://d1tm91r4ytbt54.cloudfront.net/2779cbcb-a02f-48a3-9e2e-95a8d123d165/1685483461665/web/index.html" id="minecraftIframe"></iframe>
+            </div>
+            <button id="minecraftButton" class="fullscreen-button">Play Fullscreen</button>
+        </section>
+
+
+        <section id="roblox" class="container">
+            <h2>ROBLOX</h2>
+            <button id="playButton" class="fullscreen-button">PLAY</button>
+        </section>
+
+
+        <section id="youtube-unblocked" class="container"> <!-- Moved section for YouTube Unblocked -->
+            <h2>YouTube Unblocked</h2>
+            <p>Click the button below to access unblocked YouTube videos:</p>
+            <button id="youtubeButton" class="fullscreen-button" onclick="openYouTube()">Go</button>
+        </section>
+
+
+        <section id="proxy" class="container">
+            <h2>Proxy</h2>
+            <p>Use the proxy below to browse:</p>
+            <div class="proxy-container">
+                <iframe src="https://shadow.curesoutpost.com/" id="proxyIframe"></iframe>
+            </div>
+            <p class="loading-message">(WAIT FOR YOUR SEARCH TO LOAD MIGHT TAKE AWHILE BUT IT WILL WORK)</p>
+            <button id="fullscreenButton" class="fullscreen-button" onclick="openProxyInFullscreen()">Open In Fullscreen</button>
+        </section>
+
+
+        <section id="chatgpt" class="container">
+            <h2>ChatGPT</h2>
+            <p>Click the button below to access ChatGPT:</p>
+            <button id="chatgptButton" class="fullscreen-button" onclick="openChatGPT()">Open ChatGPT</button>
+        </section>
+
+
+        <div class="spacer"></div> <!-- Blank spacer section -->
+
+
+        <div class="final-section">2xGxmes</div> <!-- Final section with text -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Unblocked Games</p>
+    </footer>
+
+
+    <script>
+        function openFallbackGame() {
+            window.open('https://zeelix.web.app/gxmes.html', '_blank');
+        }
+
+
+        function openProxyInFullscreen() {
+            window.open('https://shadow.curesoutpost.com/', '_blank');
+        }
+
+
+        function openChatGPT() {
+            window.open('https://chat.openai.com/', '_blank');
+        }
+
+
+        function openYouTube() {
+            window.open('https://www.edu-apps.org/lti_public_resources?#/youtube/search', '_blank');
+        }
+
+
+        document.getElementById('gameIframe').addEventListener('load', function() {
+            const iframeDocument = this.contentDocument || this.contentWindow.document;
+            const anchorTags = iframeDocument.getElementsByTagName('a');
+
+
+            for (let anchor of anchorTags) {
+                anchor.target = '_blank';
+            }
+        });
+
+
+        document.getElementById('youtubeButton').addEventListener('click', openYouTube);
+
+
+        document.getElementById('minecraftButton').addEventListener('click', function() {
+            // Play button functionality can go here
+        });
+    </script>
+</body>
+</html>
